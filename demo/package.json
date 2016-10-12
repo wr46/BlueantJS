@@ -1,0 +1,46 @@
+{
+  "name": "blueant",
+  "version": "0.0.1",
+  "description": "",
+  "main": "dist/blueant.js",
+  "scripts": {
+    "clean": "rm -rf dist/*",
+    "build": "npm run clean && npm run build-css && tsc --outDir dist && browserify -s main dist/demo/app/main.js > dist/bundle.js",
+    "build-css": "lessc styles/app.less dist/app.css",
+    "start": "npm run build && echo \"Started\" && node demo.js",
+    "postinstall": "typings install",
+    "tsc": "tsc --outDir dist",
+    "tsc:w": "tsc -w --outDir dist",
+    "typings": "typings"
+  },
+  "author": "Florian Backmeier",
+  "license": "S2",
+  "dependencies": {
+    "@angular/common": "~2.0.2",
+    "@angular/compiler": "~2.0.2",
+    "@angular/core": "~2.0.2",
+    "@angular/forms": "~2.0.2",
+    "@angular/http": "~2.0.2",
+    "@angular/platform-browser": "~2.0.2",
+    "@angular/platform-browser-dynamic": "~2.0.2",
+    "@angular/router": "~3.0.2",
+    "@angular/upgrade": "~2.0.2",
+    "angular-in-memory-web-api": "~0.1.5",
+    "bootstrap": "^3.3.7",
+    "core-js": "^2.4.1",
+    "reflect-metadata": "^0.1.8",
+    "rxjs": "5.0.0-beta.12",
+    "systemjs": "0.19.39",
+    "zone.js": "^0.6.25",
+    "xml2js": "^0.4.17"
+  },
+  "devDependencies": {
+    "browserify": "^13.1.0",
+    "concurrently": "^3.0.0",
+    "express": "^4.14.0",
+    "express-http-proxy": "^0.10.0",
+    "less": "^2.7.1",
+    "typescript": "^2.0.3",
+    "typings": "^1.4.0"
+  }
+}

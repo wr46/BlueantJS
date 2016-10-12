@@ -1,0 +1,35 @@
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+    <header class="mdl-layout__header">
+        <div class="mdl-layout__header-row">
+            <span class="mdl-layout-title">BlueAnt Demo Application</span>
+            <div class="mdl-layout-spacer"></div>
+            <nav class="mdl-navigation mdl-layout--large-screen-only">
+                <a class="mdl-navigation__link" (click)="logout($event)">Logout</a>
+            </nav>
+        </div>
+    </header>
+    <div class="mdl-layout__drawer">
+        <span class="mdl-layout-title">BlueAnt Demo Application</span>
+        <nav class="mdl-navigation">
+            <a class="mdl-navigation__link" (click)="logout($event)">Logout</a>
+        </nav>
+    </div>
+    <main class="mdl-layout__content">
+        <div class="page-content">
+            <login *ngIf="!blueant.isAuthenticated()"></login>
+            <div *ngIf="blueant.isAuthenticated()">
+                <div mdl class="worktimeForm-card mdl-card mdl-shadow--2dp">
+                    <div class="mdl-card__title">
+                        <h2 class="mdl-card__title-text">Add Worktime</h2>
+                    </div>
+                    <worktimeForm (saveEvent)="saveWorktimeEvent($event)"></worktimeForm>
+                </div>
+                <worktimes [date]="showWorktimeDate" [refreshWorktimes]="refreshWorktimes"></worktimes>
+                <holidays></holidays>
+            </div>
+        </div>
+    </main>
+</div>
+
+
+

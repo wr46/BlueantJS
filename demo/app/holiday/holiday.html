@@ -1,0 +1,10 @@
+<div mdl class="holidays-card mdl-card mdl-shadow--2dp">
+    <div class="mdl-card__title">
+        <h2 class="mdl-card__title-text">Your next holidays</h2>
+    </div>
+    <ul>
+        <li *ngFor="let holiday of holidays">
+            {{holiday.from | date: 'dd.MM.yyyy'}} - {{holiday.to | date: 'dd.MM.yyyy'}}: {{holiday.comment}}
+        </li>
+    </ul>
+</div>

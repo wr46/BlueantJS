@@ -1,0 +1,35 @@
+<div mdl class="worktimes-card mdl-card mdl-shadow--2dp">
+    <div class="mdl-card__title">
+        <h2 class="mdl-card__title-text">Worktimes</h2>
+    </div>
+    <div class="mdl-card__actions mdl-card--border">
+        <label for="date">Select date: </label>
+        <input type="date" id="date" [value]="date | date:'yyyy-MM-dd'" (input)="refresh($event.target.value);"/>
+    </div>
+    <div class="mdl-data mdl-card--border">
+        <table class="worktimes mdl-data-table mdl-js-data-table mdl-shadow--2dp">
+            <tr>
+                <th class="mdl-data-table__cell--non-numeric">Date</th>
+                <th class="mdl-data-table__cell--non-numeric">Projectname</th>
+                <th class="mdl-data-table__cell--non-numeric">Taskname</th>
+                <th>Duration</th>
+                <th class="mdl-data-table__cell--non-numeric">Comment</th>
+                <th class="mdl-data-table__cell--non-numeric">Actions</th>
+            </tr>
+            <tr *ngFor="let worktime of worktimes" [class.edit]="editWorktime === worktime">
+                <td *ngIf="editWorktime === worktime" colspan="6">
+                    <worktimeForm [worktime]="worktime" (cancelEvent)="cancelEdit(worktime)" (saveEvent)="date=$event.date; loadWorktimes();"></worktimeForm>
+                </td>
+                <td *ngIf="editWorktime !== worktime" class="mdl-data-table__cell--non-numeric">{{worktime.date | date: 'dd.MM.yyyy'}}</td>
+                <td *ngIf="editWorktime !== worktime" class="mdl-data-table__cell--non-numeric">{{worktime.projectName}}</td>
+                <td *ngIf="editWorktime !== worktime" class="mdl-data-table__cell--non-numeric">{{worktime.taskName}}</td>
+                <td *ngIf="editWorktime !== worktime">{{worktime.duration/60 - worktime.duration%60/60}}:{{worktime.duration%60 | number:'2.0-0'}}</td>
+                <td *ngIf="editWorktime !== worktime" class="mdl-data-table__cell--non-numeric">{{worktime.comment}}</td>
+                <td *ngIf="editWorktime !== worktime" class="mdl-data-table__cell--non-numeric">
+                    <a (click)="edit(worktime)"><i class="material-icons">mode_edit</i></a>
+                    <a (click)="delete(worktime)"><i class="material-icons">delete</i></a>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>

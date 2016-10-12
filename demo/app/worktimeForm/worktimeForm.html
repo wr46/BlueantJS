@@ -1,0 +1,43 @@
+<form (submit)="save($event)" #f="ngForm" class="worktimeForm">
+    <div class="mdl-data">
+        <div class="mdl-select">
+            <label for="projects">Project</label>
+            <select id="projects" name="project" [(ngModel)]="project"
+                    (change)="showTasksOfSelectedProject($event.target)">
+                <option></option>
+                <option *ngFor="let project of projects" [ngValue]="project" [attr.data-projectid]="project.projectID">{{project.name}}</option>
+            </select>
+        </div>
+        <div class="mdl-select">
+            <label for="tasks">Task</label>
+            <select id="tasks" name="tasks" [(ngModel)]="task">
+                <option></option>
+                <option *ngFor="let task of tasks" [ngValue]="task" [attr.disabled]="task.worktimeAllowed == 'false' ? 'disabled' : null">{{task.name}}</option>
+            </select>
+        </div>
+        <div class="mdl-select">
+            <label for="activities">Activity</label>
+            <select id="activities" name="activities" [(ngModel)]="activity">
+                <option></option>
+                <option *ngFor="let activity of activities" [ngValue]="activity">{{activity.name}}
+                </option>
+            </select>
+        </div>
+        <div #dateField class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+            <input class="mdl-textfield__input" type="date" id="date" [value]="date | date:'yyyy-MM-dd'" (input)="setDate($event.target.value);"/>
+            <label class="mdl-textfield__label" for="date">Date</label>
+        </div>
+        <div #durationField class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+            <input class="mdl-textfield__input" type="number" id="duration" name="duration" [(ngModel)]="duration"/>
+            <label class="mdl-textfield__label" for="date">Duration (in minutes)</label>
+        </div>
+        <div #commentField class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+            <input class="mdl-textfield__input" type="text" id="comment" name="comment" [(ngModel)]="comment"/>
+            <label class="mdl-textfield__label" for="date">Comment</label>
+        </div>
+    </div>
+    <div class="mdl-card__actions mdl-card--border">
+        <a *ngIf="worktime != undefined" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" (click)="cancel()">Cancel</a>
+        <input type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" value="Save"/>
+    </div>
+</form>

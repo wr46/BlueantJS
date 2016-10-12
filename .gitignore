@@ -1,0 +1,7 @@
+node_modules
+/typings
+/demo/typings
+npm-debug.log
+.idea
+tmp/
+demo/dist

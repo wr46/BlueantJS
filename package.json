@@ -1,0 +1,22 @@
+{
+  "name": "blueant",
+  "version": "0.0.1",
+  "description": "",
+  "main": "dist/blueant.js",
+  "scripts": {
+    "build": "tsc --outDir tmp && browserify tmp/blueant.js > dist/blueant.js",
+    "prepublish": "npm run build",
+    "postinstall": "typings install",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Florian Backmeier",
+  "license": "S2",
+  "dependencies": {
+    "xml2js": "^0.4.17"
+  },
+  "devDependencies": {
+    "typescript": "^2.0.3",
+    "typings": "^1.4.0",
+    "browserify": "^13.1.0"
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "declaration": false,
+    "noImplicitAny": false,
+    "removeComments": true,
+    "noLib": false
+  },
+  "files": [
+    "src/blueant.ts",
+    "src/ajax.ts",
+    "node_modules/typescript/lib/lib.es6.d.ts"
+  ]
+}

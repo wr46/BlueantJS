@@ -1,0 +1,115 @@
+.page-content {
+  padding: 20px;
+}
+
+.mdl-layout__header .mdl-layout__drawer-button {
+  height: 36px;
+  padding-top: 12px;
+}
+
+.mdl-navigation__link {
+  cursor: pointer;
+}
+
+.mdl-card {
+  margin-bottom: 20px;
+}
+
+.mdl-data {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 8px;
+
+  &.mdl-card--border {
+    border-top: 1px solid rgba(0, 0, 0, .1);
+  }
+}
+
+.login-card .loginInProgress {
+  position: relative;
+
+  &::after {
+    content: 'Logging you in. Please wait..';
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    background: #fff;
+    text-align: center;
+  }
+}
+
+.worktimeForm-card {
+  width: 100%;
+}
+
+.worktimeForm {
+  .mdl-data {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+
+    > div {
+      flex-basis: 30%;
+      margin-bottom: 10px;
+    }
+    input, label {
+      padding-left: 4px; // select has text-indent
+    }
+    .mdl-select {
+      label {
+        display: block;
+        color: rgb(255, 87, 34);
+        font-size: 12px;
+        margin-bottom: 4px;
+      }
+      select {
+        width: 100%;
+        border: 0px;
+        outline: 0px;
+        background: transparent;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        font-size: 16px;
+      }
+    }
+  }
+}
+
+.worktimes-card {
+  width: 100%;
+
+  table.worktimes {
+    width: 100%;
+
+    a {
+      cursor: pointer;
+    }
+
+    tr.edit {
+      background-color: #fff;
+
+      td {
+        text-align: left;
+      }
+    }
+  }
+}
+
+.holidays-card {
+  width: 100%;
+}
+
+@media (max-device-width: 500px) {
+  .login-card {
+    width: 100%;
+  }
+}
+
+@media (min-device-width: 500px) {
+  .login-card {
+    width: 350px;
+    margin: 100px auto 0px;
+  }
+}
+
