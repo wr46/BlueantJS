@@ -4,7 +4,7 @@
   "description": "",
   "main": "dist/blueant.js",
   "scripts": {
-    "build": "tsc --outDir tmp && browserify tmp/blueant.js > dist/blueant.js",
+    "build": "tsc --outDir tmp && browserify tmp/blueant.js > dist/blueant.js && browserify tmp/blueant.js --standalone blueant > dist/blueant.standalone.js",
     "prepublish": "npm run build",
     "postinstall": "typings install",
     "test": "echo \"Error: no test specified\" && exit 1"
