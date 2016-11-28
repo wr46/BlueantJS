@@ -1,6 +1,6 @@
 # BlueantJS
 
-BlueAnt unofficially offers a rest service.
+BlueAnt unofficially offers a rest service (see WEB-INF/conf/axis2.xml)
 Our service provider does not give any support for it and won't garantee data consistency.
 
 They instead recommend to use the soap service. However..
