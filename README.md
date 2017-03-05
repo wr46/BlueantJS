@@ -1,5 +1,7 @@
 # BlueantJS
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/sinnerschrader/BlueantJS.svg)](https://greenkeeper.io/)
+
 BlueAnt unofficially offers a rest service (see WEB-INF/conf/axis2.xml)
 Our service provider does not give any support for it and won't garantee data consistency.
 
